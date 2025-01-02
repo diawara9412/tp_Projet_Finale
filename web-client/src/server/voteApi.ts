@@ -3,9 +3,9 @@ import { Vote } from "@/core/vote";
 
 type HTTPMethod = "GET" | "POST";
 
-const voteApiBaseUrl = process.env.VOTE_API_BASE_URL ?? "http://localhost:8080";
+//const voteApiBaseUrl = process.env.VOTE_API_BASE_URL ?? "http://localhost:8080";
 
-
+const voteApiBaseUrl = process.env.VOTE_API_BASE_URL ?? "https://tp-projet-finale.onrender.com";
 
 function callVoteApi<ExpectedResponse, Body = unknown>(
   method: HTTPMethod,
