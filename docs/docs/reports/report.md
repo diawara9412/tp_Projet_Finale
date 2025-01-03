@@ -119,7 +119,7 @@ Nous avons configuré un pipeline CI/CD avec GitHub Actions pour automatiser le 
 ### Configuration du pipeline CI/CD
 
 1. **Créer un fichier de workflow GitHub Actions :**
-   - Créez un fichier nommé `ci-cd-pipeline.yml` dans le répertoire `.github/workflows` de votre dépôt.
+   - Créez un fichier nommé `deploy.yml` dans le répertoire `.github/workflows` de votre dépôt.
 
 2. **Définir les déclencheurs :**
    - Le pipeline se déclenche sur chaque push vers la branche `main`.
