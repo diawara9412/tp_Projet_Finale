@@ -69,7 +69,6 @@ L'application `vote-api` est déployée sur Render. Voici les étapes pour le d�
    - Render détectera automatiquement votre Dockerfile si vous en avez un à la racine de votre projet ou dans le répertoire `vote-api`.
 
 ### Déploiement de `web-client`
-
 Avant de déployer `web-client`, nous devons modifier les fichiers `viteApi.test.ts` et `voteApi.ts` pour utiliser l'URL de l'API déployée sur Render.
 
 #### Modification des fichiers
@@ -87,11 +86,9 @@ Avant de déployer `web-client`, nous devons modifier les fichiers `viteApi.test
      // const voteApiBaseUrl = process.env.VOTE_API_BASE_URL ?? "http://localhost:8080";
      const voteApiBaseUrl = process.env.VOTE_API_BASE_URL ?? "https://tp-projet-finale.onrender.com";
      ```
-
 ### Déploiement de [web-client] (suite)
 
-L'application [web-client] est déployée sur Render. Voici les étapes pour le déploiement :
-
+L'application `web-client` est déployée sur Render. Voici les étapes pour le déploiement :
 1. **Créer un compte Render :**
    - Si vous n'avez pas encore de compte Render, inscrivez-vous sur Render.
 
@@ -99,12 +96,12 @@ L'application [web-client] est déployée sur Render. Voici les étapes pour le 
    - Connectez-vous à votre compte Render.
    - Cliquez sur "New" et sélectionnez "Web Service".
    - Connectez votre dépôt GitHub à Render.
-   - Sélectionnez le dépôt contenant votre projet [web-client] et la branche `main`.
+   - Sélectionnez le dépôt contenant votre projet `web-client` et la branche `main`.
 
 3. **Configurer le service :**
-   - **Name** : [web-client]
+   - **Name** : `web-client`
    - **Environment** : `Docker`
-   - **Root Directory** : [web-client]  
+   - **Root Directory** : `web-client`  
    - **Build Command** : Laissez vide si vous utilisez un Dockerfile.
    - **Start Command** : Laissez vide si vous utilisez un Dockerfile.
    - Ajoutez les variables d'environnement suivantes :
@@ -113,7 +110,7 @@ L'application [web-client] est déployée sur Render. Voici les étapes pour le 
      - `PORT` : `3000`
 
 4. **Configurer le Dockerfile :**
-   - Render détectera automatiquement votre Dockerfile si vous en avez un à la racine de votre projet ou dans le répertoire [web-client].
+   - Render détectera automatiquement votre Dockerfile si vous en avez un à la racine de votre projet ou dans le répertoire `web-client`.
 
 ## Mise en place du pipeline CI/CD
 
@@ -122,7 +119,7 @@ Nous avons configuré un pipeline CI/CD avec GitHub Actions pour automatiser le 
 ### Configuration du pipeline CI/CD
 
 1. **Créer un fichier de workflow GitHub Actions :**
-   - Créez un fichier nommé `deploy.yml` dans le répertoire [workflows] de votre dépôt.
+   - Créez un fichier nommé `ci-cd-pipeline.yml` dans le répertoire `.github/workflows` de votre dépôt.
 
 2. **Définir les déclencheurs :**
    - Le pipeline se déclenche sur chaque push vers la branche `main`.
@@ -139,28 +136,28 @@ Nous avons configuré un pipeline CI/CD avec GitHub Actions pour automatiser le 
 
 - **Checkout code** : Récupère le code source du dépôt.
 - **Set up Go** : Configure l'environnement Go.
-- **Build Docker image for vote-api** : Construit l'image Docker pour [vote-api].
+- **Build Docker image for vote-api** : Construit l'image Docker pour `vote-api`.
 - **Push Docker image to Docker Hub** : Pousse l'image Docker vers Docker Hub.
-- **Deploy vote-api to Render** : Déploie [vote-api] sur Render en utilisant l'API de Render.
+- **Deploy vote-api to Render** : Déploie `vote-api` sur Render en utilisant l'API de Render.
 
 #### Job `build-and-deploy-web-client`
 
 - **Modifier les fichiers `viteApi.test.ts` et `voteApi.ts`** : Modifie les fichiers pour utiliser l'URL de l'API déployée sur Render.
 - **Checkout code** : Récupère le code source du dépôt.
 - **Set up Node.js** : Configure l'environnement Node.js.
-- **Build Docker image for web-client** : Construit l'image Docker pour [web-client].
+- **Build Docker image for web-client** : Construit l'image Docker pour `web-client`.
 - **Push Docker image to Docker Hub** : Pousse l'image Docker vers Docker Hub.
-- **Deploy web-client to Render** : Déploie [web-client] sur Render en utilisant l'API de Render.
+- **Deploy web-client to Render** : Déploie `web-client` sur Render en utilisant l'API de Render.
 
 #### Job `build-and-deploy-docs`
 
 - **Checkout code** : Récupère le code source du dépôt.
 - **Set up Node.js** : Configure l'environnement Node.js.
-- **Install dependencies for docs** : Installe les dépendances pour [docs].
-- **Build the docs site** : Construit le site [docs].
-- **Build Docker image for docs** : Construit l'image Docker pour [docs].
+- **Install dependencies for docs** : Installe les dépendances pour `docs`.
+- **Build the docs site** : Construit le site `docs`.
+- **Build Docker image for docs** : Construit l'image Docker pour `docs`.
 - **Push Docker image to Docker Hub** : Pousse l'image Docker vers Docker Hub.
-- **Deploy docs to Netlify** : Déploie [docs] sur Netlify en utilisant une action GitHub dédiée.
+- **Deploy docs to Netlify** : Déploie `docs` sur Netlify en utilisant une action GitHub dédiée.
 
 ### Obtention des secrets nécessaires
 
@@ -188,7 +185,7 @@ Pour configurer les secrets nécessaires au pipeline CI/CD, suivez les étapes c
 
 2. **Service ID (srv-ctdjf3ij1k6c73dqppb0)** :
    - Allez dans le tableau de bord de Render.
-   - Sélectionnez votre service [vote-api].
+   - Sélectionnez votre service `vote-api`.
    - L'ID du service se trouve dans l'URL de la page du service (par exemple, `srv-ctdjf3ij1k6c73dqppb0`).
 
 #### Netlify
@@ -204,9 +201,15 @@ Pour configurer les secrets nécessaires au pipeline CI/CD, suivez les étapes c
 
 ## Liens vers les images et applications déployées
 
-- [web-client] : [https://tp-projet-finale-1.onrender.com](https://td-projet-final.onrender.com)
-- [vote-api] : [https://tp-projet-finale.onrender.com/votes](https://tp-projet-finale.onrender.com)
-- [docs] : [https://projetfinale.netlify.app](https://projetfinale.netlify.app/)
+- `web-client` : [https://tp-projet-finale-1.onrender.com](https://td-projet-final.onrender.com)
+- `vote-api` : [https://tp-projet-finale.onrender.com/votes](https://tp-projet-finale.onrender.com)
+- `docs` : [https://projetfinale.netlify.app](https://projetfinale.netlify.app/)
+
+## Liens vers les images Docker
+
+- `docs` : [diawara1/docs:latest](https://hub.docker.com/r/diawara1/docs/tags)
+- `vote-api` : [diawara1/vote-api:latest](https://hub.docker.com/r/diawara1/vote-api/tags)
+- `web-client` : [diawara1/web-client:latest](https://hub.docker.com/r/diawara1/web-client/tags)
 
 ## Comment un nouvel utilisateur devrait-il contribuer au projet
 
